@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sessão</title>
+    <style>
+        #login {
+            width: 50%;
+            margin: auto;
+            background-color: lightgray;
+        }
+        #signup {
+            width: 50%;
+            margin: auto;
+            background-color: lightgray;
+        }
+        div {
+            width: 70%;
+            margin: auto;
+        }
+        input {
+            margin: 5px;
+        }
+    </style>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#signup").hide();
+            $("#reglink").click(function(evt) {
+                evt.preventDefault();
+                $("#login").hide();
+                $("#signup").fadeIn(500);
+            });
+            $("#loglink").click(function(evt) {
+                evt.preventDefault();
+                $("#login").fadeIn(500);
+                $("#signup").hide();
+            });
+        });
+   </script>
+</head>
+<body>
+    <section id="login">
+        <form method="post">
+            <fieldset>
+                <legend>Iniciar Sessão</legend>
+                <div>
+                    <label for="username">Nome de usuário </label><br>
+                    <input type="text" name="username"><br>
+                </div>
+                <div>
+                    <label>Palavra-passe</label><br>
+                    <input type="password" name="username" minlength="8" maxlength="15"><br>
+                </div>
+                <div>
+                    <input type="submit" value="Iniciar sessão"><br>
+                </div>
+                <p>Não tem uma conta? <a id="reglink" href="#">Clique aqui</a> para criar uma conta.</p>
+            </fieldset>
+        </form>
+    </section>
+    <section id="signup">
+        <form action="./sign_up.php" method="post">
+            <fieldset>
+                <legend>Iniciar Sessão</legend>
+                <div>
+                    <label for="firstname">Nome</label><br>
+                    <input type="text" name="firstname"><br>
+                </div>
+                <div>
+                    <label for="lastname">Apelido</label><br>
+                    <input type="text" name="lastname"><br>
+                </div>
+                <div>
+                    <label for="username">Nome de usuário (apenas letras, números e undercore)</label><br>
+                    <input type="text" name="username"><br>
+                </div>
+                <div>
+                    <label for="email">Email</label><br>
+                    <input type="email" name="email"><br>
+                </div>
+                <div>
+                    <label for="cell">Número de celular</label><br>
+                    <input type="text" value="+258" disabled="true" size="3" > <input type="tel" name="cell"><br>
+                </div>
+                <div>
+                    <label for="password">Palavra-passe</label><br>
+                    <input type="password" name="password" minlength="8" maxlength="15"><br>
+                </div>
+                <div>
+                    <label for="confirmpassword">Confirmar palavra-passe</label><br>
+                    <input type="password" name="confirmpassword" minlength="8" maxlength="15"><br>
+                </div>
+                <div>
+                    <input type="submit" value="Criar conta"><br>
+                </div>
+                <p>Já tem uma conta? <a id="loglink" href="#">Clique aqui</a> para iniciar sessão.</p>
+            </fieldset>
+        </form>
+    </section>
+</body>
+</html>
