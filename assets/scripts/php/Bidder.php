@@ -9,11 +9,14 @@
  * Retrieve an especific bidder information based on his id
  */
 class Bidder {
+    
     public $bidder_id;
     public $last_name;
     public $first_name;
     public $address;
     public $phone_number;
+
+    const CON_DIR = "./db_connection/connect.php";
 
     //The constructor for the class
     function __construct($bidder_id, $last_name, $first_name, $address, $phone_number) {
@@ -36,7 +39,7 @@ class Bidder {
 
     //saves the bidder info in the DB
     function saveBidder() {
-        $db = new mysqli("localhost", "auction_admin", "S3gred0", "auction");
+        require(CON_DIR);
         $query = "INSERT INTO bidders VALUES (?, ?, ?, ?, ?)";
         $stmt = $db->prepare($query);
         $stmt->bind_param("issss", $this->bidder_id, $this->last_name, $this->first_name, $this->address, $this->phone_number);
@@ -47,7 +50,7 @@ class Bidder {
 
     //updates the bidder info in the DB
     function updateBidder() {
-        $db = new mysqli("localhost", "auction_admin", "S3gred0", "auction");
+        require(CON_DIR);
         $query = "UPDATE bidders SET bidder_id = ?, last_name = ?, first_name = ?, address = ?, phone_number = ?";
         $stmt = $db->prepare($query);
         $stmt->bind_param("issss", $this->bidder_id, $this->last_name, $this->first_name, $this->address, $this->phone_number);
@@ -58,7 +61,7 @@ class Bidder {
 
     //remove the bidder info from the DB
     function removeBidder() {
-        $db = new mysqli("localhost", "auction_admin", "S3gred0", "auction");
+        require(CON_DIR);
         $query = "DELETE FROM bidders WHERE bidder_id = $this->bidder_id";
         $result = $db->query($query);
         $db->close();
@@ -67,7 +70,7 @@ class Bidder {
 
     //get the list of all bidders in the database
     static function getBidders() {
-        $db = new mysqli("localhost", "auction_admin", "S3gred0", "auction");
+        require(CON_DIR);
         $query = "SELECT * FROM bidders";
         $result = $db->query($query);
         if(mysqli_num_rows($result) > 0) {
@@ -88,7 +91,7 @@ class Bidder {
 
     //finds a especific bidder based on his id
     static function findBidder($bidder_id) {
-        $db = new mysqli("localhost", "auction_admin", "S3gred0", "auction");
+        require(CON_DIR);
         $query = "SELECT * FROM bidders WHERE bidder_id = $bidder_id";
         $result = $db->query($query);
         $row = $result->fecth_array(MYSQLI_ASSOC);
