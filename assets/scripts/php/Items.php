@@ -32,8 +32,8 @@
             $output = "<h2>Numero do Item: $this->item_id<h2>\n" .
                     "<h2>Nome do item: $this->item_name<h2>\n" .
                     "<h2>Descricao: $this->item_description<h2>\n" .
-                    "<h2>Preço de revenda: $this->resale_price<h2>\n";
-                    "<h2>Aposta Vencedora: $this->win_bit por $this->win_price<h2>\n";
+                    "<h2>Preço de revenda: $this->resale_price<h2>\n" .
+                    "<h2>Aposta Vencedora: $this->win_bidder $this->win_price<h2>\n";
             return $output;
         }
 
