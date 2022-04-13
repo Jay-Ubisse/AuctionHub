@@ -41,10 +41,10 @@ class Bidder {
     function saveBidder() {
         require(CON_DIR);
         $query = "INSERT INTO bidders VALUES (?, ?, ?, ?, ?)";
-        $stmt = $db->prepare($query);
+        $stmt = $dbcon->prepare($query);
         $stmt->bind_param("issss", $this->bidder_id, $this->last_name, $this->first_name, $this->address, $this->phone_number);
         $result = $stmt->execute();
-        $db->close();
+        $dbcon->close();
         return $result;
     }
 
@@ -52,10 +52,10 @@ class Bidder {
     function updateBidder() {
         require(CON_DIR);
         $query = "UPDATE bidders SET bidder_id = ?, last_name = ?, first_name = ?, address = ?, phone_number = ?";
-        $stmt = $db->prepare($query);
+        $stmt = $dbcon->prepare($query);
         $stmt->bind_param("issss", $this->bidder_id, $this->last_name, $this->first_name, $this->address, $this->phone_number);
         $result = $stmt->execute();
-        $db->close();
+        $dbcon->close();
         return $result;
     }
 
@@ -63,8 +63,8 @@ class Bidder {
     function removeBidder() {
         require(CON_DIR);
         $query = "DELETE FROM bidders WHERE bidder_id = $this->bidder_id";
-        $result = $db->query($query);
-        $db->close();
+        $result = $dbcon->query($query);
+        $dbcon->close();
         return $result;
     }
 
@@ -72,7 +72,7 @@ class Bidder {
     static function getBidders() {
         require(CON_DIR);
         $query = "SELECT * FROM bidders";
-        $result = $db->query($query);
+        $result = $dbcon->query($query);
         if(mysqli_num_rows($result) > 0) {
             $bidders = array();
             while($row = $result->fech_array(MYSQLI_ASSOC)) {
@@ -80,10 +80,10 @@ class Bidder {
                 array_push($bidders, $bidder);
                 unset($bidder);
             }
-            $db->close();
+            $dbcon->close();
             return $bidders;
         } else {
-            $db->close();
+            $dbcon->close();
             return NULL;
         }
     }
@@ -93,14 +93,14 @@ class Bidder {
     static function findBidder($bidder_id) {
         require(CON_DIR);
         $query = "SELECT * FROM bidders WHERE bidder_id = $bidder_id";
-        $result = $db->query($query);
+        $result = $dbcon->query($query);
         $row = $result->fecth_array(MYSQLI_ASSOC);
         if($row) {
             $bidder = new Bidder($row['bidder_id'], $row['last_name'], $row['first_name'], $row['address'], $row['phone_number']);
-            $db->close();
+            $dbcon->close();
             return $bidder;
         } else {
-            $db->close();
+            $dbcon->close();
             return NULL;
         }
 
