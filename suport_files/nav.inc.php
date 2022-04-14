@@ -11,3 +11,16 @@
     <li><a href="#">Items em leilão</a><li>
     <li><a href="#">Adicionar novo Item</a><li>
 </ul>
+<hr>
+<form action="./index.php" method="post">
+<label>Procurar um item:</label><br>
+<input type="text" name="itemid" size="14"/>
+<input type="submit" value="Procurar"/>
+<input type="hidden" name="content" value="updateitem">
+</form>
+<form action="index.php" method="post">
+<label>Procurar um liciante:</label><br>
+<input type="text" name="bidderid" size="14"/>
+<input type="submit" value="procurar"/>
+<input type="hidden" name="content" value="displaybidder">
+</form>
