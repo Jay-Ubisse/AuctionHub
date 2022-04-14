@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include('./assets/scripts/php/Bidder.php');
+    include('./assets/scripts/php/Items.php');
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -11,15 +16,25 @@
     <header>
         <?php include('./suport_files/header.inc.php'); ?>
     </header>
-    <nav>
-        <?php include('./suport_files/nav.inc.php'); ?>
-    </nav>
-    <aside>
-        <?php include('./suport_files/aside.inc.php'); ?>
-    </aside>
-    <main>
-        <h1>Bem vindo nosso site. Inicie sessão para participar dos leilões</h1>
-    </main>
+    <section id = "container">
+        <nav>
+            <?php include('./suport_files/nav.inc.php'); ?>
+        </nav>
+        <aside>
+            <?php include('./suport_files/aside.inc.php'); ?>
+        </aside>
+        <main>
+            <h3>Bem vindo ao AuctionHub.</h3>
+            <p>O AuctionHub permite que você possa participar de leilões online.</p>
+            <p>você (ou a sua organização) pode colocar um item para o leilão com um preço Inicial
+                e, em seguida, os liciantes participantes do evento estarão apptos  a fazer os seus 
+                lançamentos sobre o seu item.</p>
+            <p>Cada evento tem duração de 24 horas. No final do evento, o liciante com o maior lançamento
+                ganha e paga pelo item.</p>
+
+            <p><a href="./pages/userpage.php">Clique aqui</a> para criar ou participar em um leilão.</p>
+        </main>
+    </section>
     <footer>
         <?php include('./suport_files/footer.inc.php'); ?>
     </footer>
