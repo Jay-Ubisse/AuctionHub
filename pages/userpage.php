@@ -17,15 +17,17 @@
     <header>
         <?php include('../suport_files/header.inc.php'); ?>
     </header>
-    <nav>
-        <?php include('../suport_files/nav.inc.php'); ?>
-    </nav>
-    <aside>
-        <?php include('../suport_files/aside.inc.php'); ?>
-    </aside>
-    <main>
-        
-    </main>
+    <section id = "container">
+        <nav>
+            <?php include('../suport_files/nav.inc.php'); ?>
+        </nav>
+        <aside>
+            <?php include('../suport_files/aside.inc.php'); ?>
+        </aside>
+        <main>
+            <?php include('../suport_files/main_signin.inc.php'); ?>
+        </main>
+    </section>
     <footer>
         <?php include('../suport_files/footer.inc.php'); ?>
     </footer>

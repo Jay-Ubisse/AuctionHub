@@ -1,6 +1,8 @@
 <?php
     if(!isset($_SESSION['login'])) {
-        echo "<div><h4>Iniciar Sessão</h4></div>";
+?>
+    <div><h4><a href='../pages/userpage.php'>Iniciar Sessão</a></h4></div>
+<?php
     } else {
         echo "<div><h4>Bem vindo, {$_SESSIOM['login']}</h4><a href='#'>sair</a></div>\n";
     }
