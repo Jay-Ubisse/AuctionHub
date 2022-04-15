@@ -30,7 +30,7 @@
                 }
                 else {
                     if (isset($_REQUEST['content'])) {
-                        include($_REQUEST['content'] . ".inc.php");
+                        include("./suport_files/" . $_REQUEST['content'] . ".inc.php");
                     } else {
                         echo "<h3>Bem vindo ao AuctionHub.</h3>\n";
                         echo "<p>O AuctionHub permite que você possa participar de leilões online.</p>\n";
