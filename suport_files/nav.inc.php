@@ -4,9 +4,10 @@
     <div><h4><a href='../pages/userpage.php'>Iniciar Sessão</a></h4></div>
 <?php
     } else {
-        echo "<div><h4>Bem vindo, {$_SESSIOM['login']}</h4><a href='#'>sair</a></div>\n";
+        echo "<div><h4>Bem vindo, {$_SESSION['login']}</h4><a href='#'>sair</a></div>\n";
     }
 ?>
+<hr>
 <ul>
     <li><a href="../index.php">Página Inicial</a><li>
     <li><a href="../pages/userpage.php">Perfil</a><li>

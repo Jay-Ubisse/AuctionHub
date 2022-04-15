@@ -2,7 +2,7 @@
     if (!isset($_SESSION['login'])) {
 ?>
     <h2>Por favor, inicie sessão</h2><br>
-    <form name="login" action="./index.php" method="post">
+    <form name="login" action="../assets/scripts/php/validate.php" method="post">
     <label>Nome de usuário</label>
     <input type="text" name="userid" size="10">
     <br>
@@ -11,7 +11,7 @@
     <input type="password" name="password" size="10">
     <br>
     <br>
-    <input type="submit" value="Login">
+    <input type="submit" value="Entrar">
     <input type="hidden" name="content" value="validate">
     </form>
     <?php
