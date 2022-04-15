@@ -29,15 +29,19 @@
                    include('./suport_files/main_index.inc.php');
                 }
                 else {
-                    echo "<h3>Bem vindo ao AuctionHub.</h3>\n";
-                    echo "<p>O AuctionHub permite que você possa participar de leilões online.</p>\n";
-                    echo "<p>você (ou a sua organização) pode colocar um item para o leilão com um preço Inicial
-                            e, em seguida, os liciantes participantes do evento estarão apptos  a fazer os seus 
-                            lançamentos sobre o seu item.</p>";
-                    echo "<p>Cada evento tem duração de 24 horas. No final do evento, o liciante com o maior lançamento
-                            ganha e paga pelo item.</p>\n";
+                    if (isset($_REQUEST['content'])) {
+                        include($_REQUEST['content'] . ".inc.php");
+                    } else {
+                        echo "<h3>Bem vindo ao AuctionHub.</h3>\n";
+                        echo "<p>O AuctionHub permite que você possa participar de leilões online.</p>\n";
+                        echo "<p>você (ou a sua organização) pode colocar um item para o leilão com um preço Inicial
+                                e, em seguida, os liciantes participantes do evento estarão apptos  a fazer os seus 
+                                lançamentos sobre o seu item.</p>";
+                        echo "<p>Cada evento tem duração de 24 horas. No final do evento, o liciante com o maior lançamento
+                                ganha e paga pelo item.</p>\n";
     
-                    echo "<p>Use a janela de navegação para criar ou participar de um leilãp.</p>\n";
+                        echo "<p>Use a janela de navegação para criar ou participar de um leilão.</p>\n";
+                    }
                 }
                 ?>
         </main>
