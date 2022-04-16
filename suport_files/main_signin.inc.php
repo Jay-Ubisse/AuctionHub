@@ -19,7 +19,7 @@
     </section>
     <section id="signup">
 		<h2>Crie uma conta</h2><br>
-		<form id="regform" action="./assets/scripts/php/sign_up.php" method="post">
+		<form id="regform" action="./assets/scripts/php/enroll.php" method="post">
 			<label for="firstname">Primeiro Nome</label>
 			<input type="text" name="firstname"  placeholder="Introduza o primeiro nome" size="23" autocomplete="false">
 			<br>
@@ -94,7 +94,9 @@
 				},
 				cell: {
 					required: true,
-					digits: true
+					digits: true,
+					minlength: 9,
+					maxlength: 9
 				},
 				firstname: 'required',
 				lastname: 'required',
@@ -115,7 +117,9 @@
 				},
 				cell: {
 					required: 'Introduza o seu número de celular.',
-					digits: 'Introduza apenas dígitos.'
+					digits: 'Introduza apenas dígitos.',
+					minlength: 'O número de celular deve conter 9 dígitos',
+					maxlength: 'O número de celular deve conter 9 dígitos'
 				},
 				firstname: 'Introduza o seu primeiro nome.',
 				lastname: 'Introduza o seu apelido.',
