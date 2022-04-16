@@ -6,4 +6,4 @@
 <p>Cada evento tem duração de 24 horas. No final do evento, o liciante com o maior lançamento
     ganha e paga pelo item.</p>
     
-<p><a style="text-decoration: none; color: #f48c06" href='./pages/userpage.php'>Clique aqui</a> para criar ou participar em um leilão.</p>
+<p><a style="text-decoration: none; color: #f48c06" href='./userpage.php'>Clique aqui</a> para criar ou participar em um leilão.</p>

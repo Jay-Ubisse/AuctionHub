@@ -34,7 +34,7 @@
                     } else {
                         echo "<h3>Bem vindo ao AuctionHub.</h3>\n";
                         echo "<p>O AuctionHub permite que você possa participar de leilões online.</p>\n";
-                        echo "<p>você (ou a sua organização) pode colocar um item para o leilão com um preço Inicial
+                        echo "<p>Você (ou a sua organização) pode colocar um item para o leilão com um preço Inicial
                                 e, em seguida, os liciantes participantes do evento estarão apptos  a fazer os seus 
                                 lançamentos sobre o seu item.</p>";
                         echo "<p>Cada evento tem duração de 24 horas. No final do evento, o liciante com o maior lançamento

@@ -1,0 +1,24 @@
+main > section {
+    margin-top: 20px;
+}
+
+main > section > form, main > section > h2{
+    width: 33%;
+    margin: auto;
+}
+
+main > section > form > input {
+    padding: 5px;
+    border-style: none;
+    border-radius: 10px;
+}
+
+main > section > form > input.submit {
+    background-color: #5c677d;
+    color: #FFFFFF;
+}
+
+main > section > form > p {
+    font-size: small;
+}
+
