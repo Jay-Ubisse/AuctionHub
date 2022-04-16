@@ -1,19 +1,19 @@
 <?php
     if(!isset($_SESSION['login'])) {
 ?>
-    <div><h4><a href="../pages/userpage.php">Iniciar Sessão</a></h4></div>
+    <div><h4><a class="navlink" href="./userpage.php">Iniciar Sessão</a></h4></div>
     <hr>
 <?php
     } else {
-        echo "<div><h4>Bem vindo, {$_SESSION['login']}</h4><a href='#'>sair</a></div>\n";
+        echo "<div><h4>Bem vindo, {$_SESSION['login']}</h4><a class='navlink' href='#'>sair</a></div>\n";
 ?>
     <hr>
     <ul>
-        <li><a href="../index.php">Página Inicial</a><li>
-        <li><a href="../pages/userpage.php">Meu perfil</a><li>
-        <li><a href="../index.php?content=listbidders">Liciantes activos</a><li>
-        <li><a href="#">Items em leilão</a><li>
-        <li><a href="#">Adicionar novo Item</a><li>
+        <li><a class="navlink" href="./index.php">Página Inicial</a><li>
+        <li><a class="navlink" href="./pages/userpage.php">Meu perfil</a><li>
+        <li><a class="navlink" href="./index.php?content=listbidders">Liciantes activos</a><li>
+        <li><a class="navlink" href="#">Items em leilão</a><li>
+        <li><a class="navlink" href="#">Adicionar novo Item</a><li>
     </ul>
     <hr>
     <form action="./index.php" method="post">
