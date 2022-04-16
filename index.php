@@ -32,15 +32,23 @@
                     if (isset($_REQUEST['content'])) {
                         include("./suport_files/" . $_REQUEST['content'] . ".inc.php");
                     } else {
-                        echo "<h3>Bem vindo ao AuctionHub.</h3>\n";
-                        echo "<p>O AuctionHub permite que você possa participar de leilões online.</p>\n";
-                        echo "<p>Você (ou a sua organização) pode colocar um item para o leilão com um preço Inicial
-                                e, em seguida, os liciantes participantes do evento estarão apptos  a fazer os seus 
-                                lançamentos sobre o seu item.</p>";
+                        echo "<h3>Olá, {$_SESSION['login']}.</h3>\n";
+                        echo "<p>Seja bem vindo ao maior centro de leiões online.</p>\n";
+                        echo "<p>Assista aos leilões que estão a decorrer neste exacto momento e acompanhe os lençamentos 
+                                dos liciantes do evento em tempo real.</p>\n";
+                        echo "<p>Use a janela de navegação para criar ou participar de um leilão.</p><br>\n";
+                        echo "<h4>Gostou de algum item e deseja fazer o seu lançamento no leilão?</h4>\n";
+                        echo "<p>Simples! Clique sobre o evento que deseja participar, insira os seus dados, faça o seu lançamento
+                                e leve o seu item para casa.</p><br>\n";
+                        echo "<h4>Tem algum item que deseja leiloar?</h4>\n";
+                        echo "<p>Crie um evento clicando em \"Criar evento\" na barra de navegação, insira os seus dados, coloque o 
+                                item e a respectiva descrição e o preço Inicial. Pronto, os liciantes podem participar do seu do evento
+                                estarão aptos  a fazer os seus lançamentos sobre o seu item.<br><br></p>";
                         echo "<p>Cada evento tem duração de 24 horas. No final do evento, o liciante com o maior lançamento
-                                ganha e paga pelo item.</p>\n";
+                                ganha e paga pelo item.</p><br>\n";
+                        echo "<h4>Precisa de ajuda?</h4>\n";
+                        echo "Clique no menu \"Ajuda\" na barra de navegação.</p>";
     
-                        echo "<p>Use a janela de navegação para criar ou participar de um leilão.</p>\n";
                     }
                 }
                 ?>

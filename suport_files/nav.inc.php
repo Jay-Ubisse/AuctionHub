@@ -12,8 +12,8 @@
         <li><a class="navlink" href="./index.php">Página Inicial</a><li>
         <li><a class="navlink" href="./pages/userpage.php">Meu perfil</a><li>
         <li><a class="navlink" href="./index.php?content=listbidders">Liciantes activos</a><li>
-        <li><a class="navlink" href="#">Items em leilão</a><li>
-        <li><a class="navlink" href="#">Adicionar novo Item</a><li>
+        <li><a class="navlink" href="#">Eventos</a><li>
+        <li><a class="navlink" href="#">Criar evento</a><li>
     </ul>
     <hr>
     <form action="./index.php" method="post">
@@ -28,6 +28,10 @@
     <input type="submit" value="procurar"/>
     <input type="hidden" name="content" value="displaybidder">
     </form>
+    <hr>
+    <div>
+        <p><a class="navlink" href="#">Ajuda</a></p>
+    </div>    
 <?php
     }
  ?>

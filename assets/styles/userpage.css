@@ -11,6 +11,7 @@ main > section > form > input {
     padding: 5px;
     border-style: none;
     border-radius: 10px;
+    margin-left: 10px;
 }
 
 main > section > form > input.submit {

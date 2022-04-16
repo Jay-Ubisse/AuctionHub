@@ -2,12 +2,12 @@
     session_start();
     require './db_connection/connect.php';
 
-    $user_id = $_POST['userid'];
+    $user_name = $_POST['userid'];
     $password = $_POST['password'];
 
-    $query = "SELECT name FROM users where user_id = ? AND password = sha2(?, 256)";
+    $query = "SELECT user_name FROM users where user_name = ? AND password = sha2(?, 256)";
     $stmt = $dbcon->prepare($query);
-    $stmt->bind_param("ss", $user_id, $password);
+    $stmt->bind_param("ss", $user_name, $password);
     $stmt->execute();
     $stmt->bind_result($name);
     $stmt->fetch();
