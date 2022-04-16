@@ -1,7 +1,7 @@
 <?php
     if(!isset($_SESSION['login'])) {
 ?>
-    <div><h4><a href='../pages/userpage.php'>Iniciar Sessão</a></h4></div>
+    <div><h4><a href="../pages/userpage.php">Iniciar Sessão</a></h4></div>
     <hr>
 <?php
     } else {
