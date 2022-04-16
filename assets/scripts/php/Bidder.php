@@ -82,7 +82,7 @@ class Bidder {
         if(mysqli_num_rows($result) > 0) {
             $bidders = array();
             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                $bidder = new Bidder($row['bidder_id'], $row['last_name'], $row['first_name'], $row['city'], $row['cell_number']);
+                $bidder = new Bidder($row['bidder_id'], $row['last_name'], $row['first_name'], $row['city'], $row['address'], $row['cell_number'], $row['card_numer'], $row['card_name'], $row['security_code']);
                 array_push($bidders, $bidder);
                 unset($bidder);
             }

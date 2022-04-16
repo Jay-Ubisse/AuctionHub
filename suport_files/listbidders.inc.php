@@ -17,7 +17,7 @@
     echo "<form name='bidders' method='post'>\n";
     echo "<select ondblclick=\"listbox_dblclick()\" name=\"bidderid\" size=\"20\">\n";
     foreach($bidders as $bidder) {
-        echo "<option value='$bidderid'>" . $bidder->bidder_id . " - " . $bidder->first_name . " " . $bidder->last_name . "</option>\n";
+        echo "<option value='$bidderid'>" . $bidder->bidder_id . " - " . $bidder->first_name . " " . $bidder->last_name . " - " . $bidder->city . "</option>\n";
     }
     echo "</select><br>\n";
     echo "<input type=\"submit\" onClick=\"button_click(0)\" name=\"displaybidder\" value=\"View Bidder\">\n";
