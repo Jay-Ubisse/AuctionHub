@@ -29,11 +29,11 @@
 			<br>
         	<br>
 			<label for="username">Nome de usuário</label>
-			<input type="text" name="username" placeholder="Letras, números e sublinhados (_)" size="26" autocomplete="false">
+			<input type="text" name="username"  placeholder="Letras, números e sublinhados (_)" size="26" autocomplete="false">
 			<br>
         	<br>
 			<label for="email">Email</label>
-			<input type="text" name="email" placeholder="Introduza o Email" size="23" autocomplete="false">
+			<input type="text" name="email"  placeholder="Introduza o Email" size="23" autocomplete="false">
 			<br>
         	<br>
 			<label for="cell">Número de celular</label>
@@ -44,10 +44,10 @@
 			<input type="password" id="password" name="password" placeholder="Introduza a palavra-passe">
 			<br>
         	<br>
-			<label for="comfirmPassword">Confirmar Palavra-Passe</label>	
-			<input type="password" name="confirmPassword" id="confirmPassword" placeholder="Reintroduza a palavra-passe">
+			<label for="comfirmpassword">Confirmar Palavra-Passe</label>	
+			<input type="password" name="confirmpassword" id="confirmpassword" placeholder="Reintroduza a palavra-passe">
 			<br>
-			<p>No minimo 6 caracteres e no máximo 15. Apenas letras e numeros</p>
+			<p>No minimo 6 caracteres e no máximo 15.</p>
 			<input type="submit" class="submit"	value="Criar conta">
 			<p>Ja tem uma conta? <a href="#" class="mainlink" id="sign">Entre!</a></p>
 		</form>
@@ -58,18 +58,80 @@
     }
     ?>
 <script src="./assets/scripts/js/jquery-3.6.0.js"></script>
+<script src="./assets/scripts/js/jquery.validate.min.js"></script>
 <script language="javascript">
-	document.login.userid.focus();
-	document.login.userid.select();
-	$("#signup").hide();
-    $("#reg").click(function(evt) {
-        evt.preventDefault();
-        $("#login").hide();
-        $("#signup").fadeIn(500);
-    });
-    $("#sign").click(function(evt) {
-        evt.preventDefault();
+	$(document).ready(function() {
+
+		document.login.userid.focus();
+		document.login.userid.select();
+		
+		$("#signup").hide();
+    	$("#reg").click(function(evt) {
+        	evt.preventDefault();
+        	$("#login").hide();
+        	$("#signup").fadeIn(500);
+    	});
+
+    	$("#sign").click(function(evt) {
+        	evt.preventDefault();
             $("#signup").hide();
             $("#login").fadeIn(500);
         });
+
+		$('#regform').validate({
+			rules: {
+            	password: {
+                	required: true,
+                	rangelength : [8,15]
+            	},
+            	confirmpassword: {
+                	equalTo: '#password',
+                	required: true
+            	},
+				email: {
+					required: true,
+					email: true
+				},
+				cell: {
+					required: true,
+					digits: true
+				},
+				firstname: 'required',
+				lastname: 'required',
+				username: 'required'
+        	},
+			messages: {
+				password: {
+					required: 'Introduza uma palavra passe.',
+					rangelength: 'A palavra passe deve ter entre 8 a 15 caracteres.'
+				},
+				confirmpassword: {
+					equalTo: 'A palavra-passe deve ser igua a anterior.',
+					required: 'Introduza novamente a palavra passe.'
+				},
+				email: {
+					required: 'Introduza o email',
+					email: 'Introduza um endereço de email válido.'
+				},
+				cell: {
+					required: 'Introduza o seu número de celular.',
+					digits: 'Introduza apenas dígitos.'
+				},
+				firstname: 'Introduza o seu primeiro nome.',
+				lastname: 'Introduza o seu apelido.',
+				username: 'Introduza um nome de usuário'
+			}
+		});
+
+		$('#logform').validate({
+			rules : {
+				userid: 'required',
+				password: 'required'
+			},
+			messages: {
+				userid: "Introduza o nome de usuario",
+				password: "Introduza a palavra passe"
+			}
+		});
+	}); 
 </script>

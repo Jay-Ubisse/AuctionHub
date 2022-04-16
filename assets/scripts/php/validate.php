@@ -18,6 +18,6 @@
         header("location: ../../../index.php");
     } else {
         echo "<h2>Palavra passe ou nome de usuário incorrecto.</h2>\n";
-        echo "<a href=\"../../../pages/userpage.php\">Tente de novo</a>\n";
+        echo "<a href=\"../../../userpage.php\">Tente de novo</a>\n";
     }
 ?>   

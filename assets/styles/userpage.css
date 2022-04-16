@@ -3,7 +3,7 @@ main > section {
 }
 
 main > section > form, main > section > h2{
-    width: 33%;
+    width: 45%;
     margin: auto;
 }
 
@@ -21,4 +21,10 @@ main > section > form > input.submit {
 main > section > form > p {
     font-size: small;
 }
+
+main > section > form > label.error {
+    color: #F00;
+    font-size: 70%;
+    margin-left: 10px;
+   }
 
