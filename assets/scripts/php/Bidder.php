@@ -11,18 +11,26 @@
 class Bidder {
     
     public $bidder_id;
-    public $last_name;
     public $first_name;
+    public $last_name;
+    public $city;
     public $address;
     public $phone_number;
+    public $card_number;
+    public $card_name;
+    public $security_code;
 
     //The constructor for the class
-    function __construct($bidder_id, $last_name, $first_name, $address, $phone_number) {
+    function __construct($bidder_id, $first_name, $last_name, $city, $address, $phone_number, $card_number, $card_name, $security_code) {
         $this->bidder_id = $bidder_id;
-        $this->last_name = $last_name;
         $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->city = $city;
         $this->address = $address;
         $this->phone_number = $phone_number;
+        $this->card_number = $card_number;
+        $this->card_name = $card_name;
+        $this->security_code = $security_code;
     }
 
     //displays de bidder info
@@ -38,9 +46,9 @@ class Bidder {
     //saves the bidder info in the DB
     function saveBidder() {
         require(dirname(__FILE__) . '/db_connection/connect.php');
-        $query = "INSERT INTO bidders VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO bidders VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $dbcon->prepare($query);
-        $stmt->bind_param("issss", $this->bidder_id, $this->last_name, $this->first_name, $this->address, $this->phone_number);
+        $stmt->bind_param("issss", $this->bidder_id, $this->first_name, $this->last_name, $this->city, $this->address, $this->phone_number, $this->card_number, $this->card_name, $this->security_code);
         $result = $stmt->execute();
         $dbcon->close();
         return $result;
@@ -49,9 +57,9 @@ class Bidder {
     //updates the bidder info in the DB
     function updateBidder() {
         require(dirname(__FILE__) . '/db_connection/connect.php');
-        $query = "UPDATE bidders SET bidder_id = ?, last_name = ?, first_name = ?, address = ?, phone_number = ?";
+        $query = "UPDATE bidders SET bidder_id = ?, first_name = ?,  last_name = ?, address = ?, cell_number = ?, card_number = ?, card_name = ?, securiry_code = ?";
         $stmt = $dbcon->prepare($query);
-        $stmt->bind_param("issss", $this->bidder_id, $this->last_name, $this->first_name, $this->address, $this->phone_number);
+        $stmt->bind_param("issss", $this->bidder_id, $this->first_name, $this->last_name, $this->address, $this->phone_number, $this->card_number, $this->card_name, $this->security_code);
         $result = $stmt->execute();
         $dbcon->close();
         return $result;
@@ -74,7 +82,7 @@ class Bidder {
         if(mysqli_num_rows($result) > 0) {
             $bidders = array();
             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                $bidder = new Bidder($row['bidder_id'], $row['last_name'], $row['first_name'], $row['address'], $row['phone_number']);
+                $bidder = new Bidder($row['bidder_id'], $row['last_name'], $row['first_name'], $row['city'], $row['cell_number']);
                 array_push($bidders, $bidder);
                 unset($bidder);
             }
