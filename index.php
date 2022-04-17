@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include('./assets/scripts/php/Bidder.php');
-    include('./assets/scripts/php/Items.php');
+   
 ?>
 <!DOCTYPE html>
 <html lang="pt">

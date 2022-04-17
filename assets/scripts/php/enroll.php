@@ -1,5 +1,6 @@
 <?php
     require './db_connection/connect.php';
+    require './User.php';
 
     $user_name = $_POST['username'];
     $first_name = $_POST['firstname'];
@@ -15,11 +16,8 @@
         echo "<h4>Nome de usuário ou email já registrado!</h4>\n";
         echo "<p><a href=\"../../../userpage.php\">Cique aqui</a> para voltar a tentar.</p>\n";
     } else {
-        $save_query = "INSERT INTO users VALUES (?, ?, ?, ?, ?, SHA2(?, 256))";
-        $stmt = $dbcon->prepare($save_query);
-        $stmt->bind_param("ssssis", $user_name, $first_name, $last_name, $email, $phone_number, $password);
-        $result = $stmt->execute();
-        $dbcon->close();
+        $user = new User($user_name, $first_name, $last_name, $email, $phone_number, $password);
+        $user->saveUser();
         echo "<h4>Conta criada com sucesso!</h4>\n";
         echo "<p><a href=\"../../../userpage.php\">Cique aqui</a> para iniciar sessão.</p>\n";
     }

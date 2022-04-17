@@ -1,27 +1,21 @@
-
-<script language="javascript">
-    function listbox_dblclick() {
-        document.bidders.displaybidder.click() 
-    }
-</script>
-<script language="javascript">\
-    function button_click(target) {
-        if(target==0) bidders.action="index.php?content=displaybidder"
-        if(target==1) bidders.action="index.php?content=removebidder"
-        if(target==2) bidders.action=\"index.php?content=updatebidder"
-    }
+<script>
+        function button_click(target) {
+            if(target == 0) document.bidderslist.action = "./userpage.php?content=profile";
+            if(target == 1) document.bidderslist.action = "./index.php";
+        }
 </script>
 <?php
     $bidders = Bidder::getBidders();
-    echo "<h2>Selecione o Liciante</h2>\n";
-    echo "<form name='bidders' method='post'>\n";
-    echo "<select ondblclick=\"listbox_dblclick()\" name=\"bidderid\" size=\"20\">\n";
-    foreach($bidders as $bidder) {
-        echo "<option value='$bidderid'>" . $bidder->bidder_id . " - " . $bidder->first_name . " " . $bidder->last_name . " - " . $bidder->city . "</option>\n";
-    }
-    echo "</select><br>\n";
-    echo "<input type=\"submit\" onClick=\"button_click(0)\" name=\"displaybidder\" value=\"View Bidder\">\n";
-    echo "<input type=\"submit\" onClick=\"button_click(1)\" name=\"deletebidder\" value=\"Delete Bidder\">\n";
-    echo "<input type=\"submit\" onClick=\"button_click(2)\" name=\"updatebidder\" value=\"Update Bidder\">\n";
-    echo "</form>";
 ?>
+<form name="bidderslist" method="post">
+    <select size="10" name="bidderid">
+        <?php
+            foreach($bidders as $bidder) {
+                $bidderinfo = $bidder->bidder_id . " - " . $bidder->first_name . " " . $bidder->last_name . " - " . $bidder->city;
+                echo "<option value='100'>$bidderinfo</option>\n";
+            }
+        ?>
+    </select><br>
+    <input type="submit" onclick="button_click(0)" value="Ver perfil">
+    <input type="submit" onclick="button_click(1)" value="Entrar no evento">
+</form>

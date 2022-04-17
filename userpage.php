@@ -1,7 +1,5 @@
 <?php
     session_start();
-    include('./assets/scripts/php/Bidder.php');
-    include('./assets/scripts/php/Items.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +24,17 @@
             <?php include('./suport_files/aside.inc.php'); ?>
         </aside>
         <main>
-            <?php include('./suport_files/main_signin.inc.php'); ?>
+            <?php
+                if (isset($_REQUEST['content'])) {
+                    include("./suport_files/" . $_REQUEST['content'] . ".inc.php");
+                } else {
+                    if (!isset($_SESSION['login'])) {
+                        include('./suport_files/main_signin.inc.php');
+                    } else {
+                        include("./suport_files/profile.inc.php");
+                    }
+                }
+            ?>
         </main>
     </section>
     <footer>
