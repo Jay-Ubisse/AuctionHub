@@ -12,7 +12,7 @@
         <?php
             foreach($bidders as $bidder) {
                 $bidderinfo = $bidder->bidder_id . " - " . $bidder->first_name . " " . $bidder->last_name . " - " . $bidder->city;
-                echo "<option value='100'>$bidderinfo</option>\n";
+                echo "<option value='$bidder->bidder_id'>$bidderinfo</option>\n";
             }
         ?>
     </select><br>

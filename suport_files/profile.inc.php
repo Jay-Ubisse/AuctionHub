@@ -7,16 +7,17 @@
         echo "<br><br>";
         echo "<p>Este é o seu perfil. Aqui poderá ver os seus eventos e os eventos nos quis está a participar.<p>\n";
         echo "<p>Para criar ou participar de um evento deve se registrar como liciante. <a id='showform' href='#'>Clique aqui</a> para se registar<p><br><br>\n";
+        $action = "./assets/scripts/php/bidder_register.php?username=" . $_REQUEST['username'];
 ?>
     <section id="cadastre">
 		<h2>Seja um liciante</h2><br>
-		<form name="cadastreform" id="cadastreform" action="./assets/scripts/php/bidder_register.php" method="post">
+		<form name="cadastreform" id="cadastreform" action=<?php echo $action?> method="post">
 			<label for="city">Cidade</label>
 			<input type="text" name="city"  placeholder="Introduza a cidade em que vive" size="23" autocomplete="false">
 			<br>
         	<br>
 			<label for="address">endereço</label>
-			<input type="text" name="adress"  placeholder="Introduza o seu endereço" size="23" autocomplete="false">
+			<input type="text" name="address"  placeholder="Introduza o seu endereço" size="23" autocomplete="false">
 			<br>
         	<br>
 			<label for="cardnumber">Número de cartão</label>
@@ -75,7 +76,7 @@
 					maxlength: 19
 				},
 				city: 'required',
-				adress: 'required',
+				address: 'required',
 				cardname: 'required'
         	},
 			messages: {

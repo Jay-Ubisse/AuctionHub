@@ -48,9 +48,9 @@ class Bidder {
     //saves the bidder info in the DB
     function saveBidder() {
         require(dirname(__FILE__) . '/db_connection/connect.php');
-        $query = "INSERT INTO bidders VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO bidders (user_name, first_name, last_name, city, address, cell_number, card_number, card_name, security_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $dbcon->prepare($query);
-        $stmt->bind_param("issss", $this->bidder_id, $this->first_name, $this->last_name, $this->city, $this->address, $this->phone_number, $this->card_number, $this->card_name, $this->security_code);
+        $stmt->bind_param("sssssissi", $this->user_name, $this->first_name, $this->last_name, $this->city, $this->address, $this->phone_number, $this->card_number, $this->card_name, $this->security_code);
         $result = $stmt->execute();
         $dbcon->close();
         return $result;
