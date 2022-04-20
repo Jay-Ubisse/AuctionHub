@@ -13,7 +13,6 @@
     $stmt->fetch();
 
     if(isset($name)) {
-        echo "<h3>Bem vindo!</h3>\n";
         $_SESSION['login'] = $name;
         header("location: ../../../index.php");
     } else {
