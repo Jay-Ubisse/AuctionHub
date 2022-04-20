@@ -11,7 +11,7 @@
 
     $check_query = "SELECT * FROM users where user_name = '$user_name' OR email = '$email'";
     $check_result = $dbcon->query($check_query);
-    
+    $dbcon->close();
     if($check_result->num_rows > 0) {
         echo "<h4>Nome de usuário ou email já registrado!</h4>\n";
         echo "<p><a href=\"../../../userpage.php\">Cique aqui</a> para voltar a tentar.</p>\n";

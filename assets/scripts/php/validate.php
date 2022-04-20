@@ -11,7 +11,7 @@
     $stmt->execute();
     $stmt->bind_result($name);
     $stmt->fetch();
-
+    $dbcon->close();
     if(isset($name)) {
         $_SESSION['login'] = $name;
         header("location: ../../../index.php");
