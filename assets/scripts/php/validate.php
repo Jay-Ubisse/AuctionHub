@@ -2,8 +2,8 @@
     session_start();
     require './db_connection/connect.php';
 
-    $user_name = $_POST['userid'];
-    $password = $_POST['password'];
+    $user_name = trim($_POST['userid']);
+    $password = trim($_POST['password']);
 
     $query = "SELECT user_name FROM users where user_name = ? AND password = sha2(?, 256)";
     $stmt = $dbcon->prepare($query);

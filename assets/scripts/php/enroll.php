@@ -2,11 +2,11 @@
     require './db_connection/connect.php';
     require './User.php';
 
-    $user_name = $_POST['username'];
-    $first_name = $_POST['firstname'];
-    $last_name = $_POST['lastname'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['cell'];
+    $user_name = trim($_POST['username']);
+    $first_name = trim($_POST['firstname']);
+    $last_name = trim($_POST['lastname']);
+    $email = trim($_POST['email']);
+    $phone_number = trim($_POST['cell']);
     $password = $_POST['password'];
 
     $check_query = "SELECT * FROM users where user_name = '$user_name' OR email = '$email'";
