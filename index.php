@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    session_start(); //Retorna uma sessao actaulmente iniciada
    
 ?>
 <!DOCTYPE html>
@@ -13,24 +13,30 @@
 </head>
 <body>
     <header>
-        <?php include('./suport_files/header.inc.php'); ?>
+        <?php 
+        include('./suport_files/header.inc.php'); //inclue o cabecalho
+        ?>  
     </header>
     <section id = "container">
         <nav>
-            <?php include('./suport_files/nav.inc.php'); ?>
+            <?php 
+                include('./suport_files/nav.inc.php'); //inclue a barra de navegacao
+            ?> 
         </nav>
         <aside>
-            <?php include('./suport_files/aside.inc.php'); ?>
+            <?php 
+                include('./suport_files/aside.inc.php'); //inclue a barra de informacoes (aside)
+            ?> 
         </aside>
         <main>
             <?php
                 if (!isset($_SESSION['login'])) {
-                   include('./suport_files/main_index.inc.php');
+                   include('./suport_files/main_index.inc.php'); //Se a ssessao estiver iniciada, apresentar a pagina inicial para usuarios cadastrados
                 }
                 else {
                     if (isset($_REQUEST['content'])) {
-                        include("./suport_files/" . $_REQUEST['content'] . ".inc.php");
-                    } else {
+                        include("./suport_files/" . $_REQUEST['content'] . ".inc.php"); // Se a sessao nao estiver iniciada, mas 
+                    } else {                                                            //Caso contrario, mostrar a pagina inicial para usuarios com sessao nao iniciada
                         echo "<h3>Olá, {$_SESSION['login']}.</h3>\n";
                         echo "<p>Seja bem vindo ao maior centro de leiões online.</p>\n";
                         echo "<p>Assista aos leilões que estão a decorrer neste exacto momento e acompanhe os lençamentos 
@@ -54,7 +60,9 @@
         </main>
     </section>
     <footer>
-        <?php include('./suport_files/footer.inc.php'); ?>
+        <?php 
+            include('./suport_files/footer.inc.php'); //incluir o rodape
+        ?>
     </footer>
 </body>
 </html>
