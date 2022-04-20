@@ -1,5 +1,12 @@
+
 <?php
-    session_start();
+/**
+ * Pagina dinamica para inicio de seccao, cadastro e visualizacao de perfil.
+ */
+
+    //Iniciar sessao ou retornar uma sessao
+    //se esta ja tiver sido iniciada
+    session_start(); 
 ?>
 
 <!DOCTYPE html>
@@ -25,12 +32,15 @@
         </aside>
         <main>
             <?php
+                //Apresentar o conteudo definido pelo $_REQUEST
                 if (isset($_REQUEST['content'])) {
                     include("./suport_files/" . $_REQUEST['content'] . ".inc.php");
                 } else {
+                    //Se a sessao nao estiver iniciada, apresentar o formulario de inicio de sessao
                     if (!isset($_SESSION['login'])) {
                         include('./suport_files/main_signin.inc.php');
                     } else {
+                        //Caso contrario, apresentar o conteudo do perfil do usuario
                         include("./suport_files/profile.inc.php");
                     }
                 }

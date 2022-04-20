@@ -31,12 +31,13 @@
         <main>
             <?php
                 if (!isset($_SESSION['login'])) {
-                   include('./suport_files/main_index.inc.php'); //Se a ssessao estiver iniciada, apresentar a pagina inicial para usuarios cadastrados
+                   include('./suport_files/main_index.inc.php'); //Se a ssessao nao estiver iniciada, apresentar a pagina inicial para usuarios com sessao nao iniciada
                 }
                 else {
                     if (isset($_REQUEST['content'])) {
-                        include("./suport_files/" . $_REQUEST['content'] . ".inc.php"); // Se a sessao nao estiver iniciada, mas 
-                    } else {                                                            //Caso contrario, mostrar a pagina inicial para usuarios com sessao nao iniciada
+                        include("./suport_files/" . $_REQUEST['content'] . ".inc.php"); // Se a sessao estiver iniciada e ouver alguma requisicao, apresentar o conteudo contido no ficheiro deninido pela requisicap
+                    } else {
+                        //Se a ssessao estiver iniciada e nao houver alguma requisicao, apresentar a pagina inicial para usuarios com sessao iniciada                                                            
                         echo "<h3>Olá, {$_SESSION['login']}.</h3>\n";
                         echo "<p>Seja bem vindo ao maior centro de leiões online.</p>\n";
                         echo "<p>Assista aos leilões que estão a decorrer neste exacto momento e acompanhe os lençamentos 
