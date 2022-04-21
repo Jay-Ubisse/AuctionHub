@@ -1,4 +1,5 @@
 <?php
+    include('./assets/scripts/php/Bidder.php');
     session_start(); //Retorna uma sessao actaulmente iniciada
    
 ?>

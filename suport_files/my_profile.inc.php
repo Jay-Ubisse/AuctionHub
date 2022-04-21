@@ -1,17 +1,20 @@
 <?php
     
-    if(isset($_REQUEST['username'])) {
-        $username = $_REQUEST['username'];
-        $user = User::findUser($username);
-        echo $user->__toString();
-        echo "<br><br>";
-        echo "<p>Este é o seu perfil. Aqui poderá ver os seus eventos e os eventos nos quis está a participar.<p>\n";
-        echo "<p>Para criar ou participar de um evento deve se registrar como liciante. <a id='showform' href='#'>Clique aqui</a> para se registar<p><br><br>\n";
+    if(isset($_POST['username'])) {
+		$bidder = Bidder::findBidderByUserName($_POST['username']);
+		if($bidder == null) {
+			$username = $_POST['username'];
+        	$user = User::findUser($username);
+        	echo $user->__toString();
+        	echo "<br><br>";
+        	echo "<p>Este é o seu perfil. Aqui poderá ver os seus eventos e os eventos nos quis está a participar.<p>\n";
+        	echo "<p>Para criar ou participar de um evento deve se registrar como liciante. <a id='showform' href='#'>Clique aqui</a> para se registar<p><br><br>\n";
         
-		$action = "./assets/scripts/php/bidder_register.php?username=" . $_REQUEST['username'];
+			$action = "./assets/scripts/php/bidder_register.php?username=" . $_POST['username'];
 ?>
+        
     <section id="cadastre">
-		<h2>Seja um liciante</h2><br>
+		<h2>Torne-se um liciante</h2><br>
 		<form name="cadastreform" id="cadastreform" action=<?php echo $action?> method="post">
 			<label for="city">Cidade</label>
 			<input type="text" name="city"  placeholder="Introduza a cidade em que vive" size="23" autocomplete="false">
@@ -37,19 +40,15 @@
 		</form>
 	</section>
 <?php
-    } else {
-		echo "<section id='profileinfo'>\n";
-        $bidderid = $_REQUEST['bidderid'];
-        $bidder = Bidder::findBidder($bidderid);
-        echo $bidder->__toString();
-		echo "<button name='editprofile' id='editprofile' onclick='showForm()'>Editar perfil</button>\n";
-		echo "<h4></h4>";
-		echo "<h4>Eventos criados</h4>\n";
-		echo "<br><br>\n";
-		echo "<h4>Eventos ganhos</h4>\n";
-		echo "</section>\n";
-
-    
+    	} else {
+			echo "<section id='profileinfo'>\n";
+        	echo $bidder->__toString();
+			echo "<button name='editprofile' id='editprofile' onclick='showForm()'>Editar perfil</button>\n";
+			echo "<h4></h4>";
+			echo "<h4>Eventos criados</h4>\n";
+			echo "<br><br>\n";
+			echo "<h4>Eventos ganhos</h4>\n";
+			echo "</section>\n"; 
 ?>
 <section id="updateinfo">
 		<h2>Editar dados</h2><br>
@@ -79,6 +78,7 @@
 		</form>
 	</section>
 <?php
+		}
 	}
 ?>
 <script src="./assets/scripts/js/jquery-3.6.0.js"></script>

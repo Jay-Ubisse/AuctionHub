@@ -6,6 +6,7 @@
 
     //Iniciar sessao ou retornar uma sessao
     //se esta ja tiver sido iniciada
+    include('./assets/scripts/php/Bidder.php');
     session_start(); 
 ?>
 
