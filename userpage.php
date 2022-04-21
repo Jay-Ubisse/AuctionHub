@@ -41,7 +41,7 @@
                         include('./suport_files/main_signin.inc.php');
                     } else {
                         //Caso contrario, apresentar o conteudo do perfil do usuario
-                        include("./suport_files/profile.inc.php");
+                        include("./suport_files/my_profile.inc.php");
                     }
                 }
             ?>
