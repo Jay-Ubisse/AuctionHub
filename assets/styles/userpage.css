@@ -7,7 +7,7 @@ main > section > form, main > section > h2{
     margin: auto;
 }
 
-main > section > form > input,  main > section > form > button {
+main > section > form > input,  main > section > form > button, main > section > form > textarea, main button {
     padding: 5px;
     border-style: solid;
     border-color: #5c677d;
@@ -15,7 +15,7 @@ main > section > form > input,  main > section > form > button {
     margin-left: 10px;
 }
 
-main > section > form > input.submit, main > section > form > button {
+main > section > form > input.submit, main > section > form > button, main button {
     background-color: #5c677d;
     color: #FFFFFF;
 }
