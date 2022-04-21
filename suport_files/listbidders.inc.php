@@ -6,8 +6,10 @@
         <?php
             //Percorrer a lista de liciantes e apresentar as informacoes dentro da estrutura select
             foreach($bidders as $bidder) { 
-                $bidderinfo = $bidder->bidder_id . " - " . $bidder->first_name . " " . $bidder->last_name . " - " . $bidder->city;
-                echo "<option value='$bidder->bidder_id'>$bidderinfo</option>\n";
+                if($bidder->user_name != $_SESSION['login']) {
+                    $bidderinfo = $bidder->bidder_id . " - " . $bidder->first_name . " " . $bidder->last_name . " - " . $bidder->city;
+                    echo "<option value='$bidder->bidder_id'>$bidderinfo</option>\n";
+                }
             }
         ?>
     </select><br>
@@ -18,7 +20,7 @@
 <!-- Codigo Javascript -->
 <script>
         function button_click(target) {
-            if(target == 0) document.bidderslist.action = "./userpage.php?content=profile";
+            if(target == 0) document.bidderslist.action = "./userpage.php?content=user_profile";
             if(target == 1) document.bidderslist.action = "./index.php";
         }
 </script>

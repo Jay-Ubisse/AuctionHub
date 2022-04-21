@@ -38,21 +38,17 @@
 	</section>
 <?php
     } else {
-        if (!isset($_REQUEST['bidderid']) || (!is_numeric($_REQUEST['bidderid']))) {
-            echo "<h2>Não selecionou um liciante na lista.</h2>\n";
-            echo "<a href=\"index.php?content=listbidders\">Voltar</a>\n";
-        } else {
-			echo "<section id='profileinfo'>\n";
-            $bidderid = $_REQUEST['bidderid'];
-            $bidder = Bidder::findBidder($bidderid);
-            echo $bidder->__toString();
-			echo "<button name='editprofile' id='editprofile' onclick='showForm()'>Editar perfil</button>\n";
-			echo "<h4></h4>";
-			echo "<h4>Eventos criados</h4>\n";
-			echo "<br><br>\n";
-			echo "<h4>Eventos ganhos</h4>\n";
-			echo "</section>\n";
-        }
+		echo "<section id='profileinfo'>\n";
+        $bidderid = $_REQUEST['bidderid'];
+        $bidder = Bidder::findBidder($bidderid);
+        echo $bidder->__toString();
+		echo "<button name='editprofile' id='editprofile' onclick='showForm()'>Editar perfil</button>\n";
+		echo "<h4></h4>";
+		echo "<h4>Eventos criados</h4>\n";
+		echo "<br><br>\n";
+		echo "<h4>Eventos ganhos</h4>\n";
+		echo "</section>\n";
+
     
 ?>
 <section id="updateinfo">
