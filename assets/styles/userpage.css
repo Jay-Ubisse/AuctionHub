@@ -7,14 +7,15 @@ main > section > form, main > section > h2{
     margin: auto;
 }
 
-main > section > form > input {
+main > section > form > input,  main > section > form > button {
     padding: 5px;
-    border-style: none;
+    border-style: solid;
+    border-color: #5c677d;
     border-radius: 10px;
     margin-left: 10px;
 }
 
-main > section > form > input.submit {
+main > section > form > input.submit, main > section > form > button {
     background-color: #5c677d;
     color: #FFFFFF;
 }

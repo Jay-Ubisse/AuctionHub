@@ -53,54 +53,38 @@
 			echo "<h4>Eventos ganhos</h4>\n";
 			echo "</section>\n";
         }
-    }
+    
 ?>
 <section id="updateinfo">
 		<h2>Editar dados</h2><br>
 		<form name="updateform" id="updateform" action="./assets/scripts/php/update_info.php" method="post">
 		<label for="updatefirstname">Primeiro Nome</label>
-			<input type="text" name="updatefirstname"  placeholder="Introduza o primeiro nome" size="23" autocomplete="false">
+			<input type="text" name="updatefirstname"  value="<?php echo $bidder->first_name; ?>" size="23" autocomplete="false">
 			<br>
         	<br>
 			<label for="updatelastname">Apelido</label>
-			<input type="text" name="updatelastname"  placeholder="Introduza o apelido" size="23" autocomplete="false">
-			<br>
-        	<br>
-			<label for="updateusername">Nome de usuário</label>
-			<input type="text" name="updateusername"  placeholder="Letras, números e sublinhados (_)" size="26" autocomplete="false">
-			<br>
-        	<br>
-			<label for="updateemail">Email</label>
-			<input type="text" name="updateemail"  placeholder="Introduza o Email" size="23" autocomplete="false">
+			<input type="text" name="updatelastname"  value="<?php echo $bidder->last_name; ?>" size="23" autocomplete="false">
 			<br>
         	<br>
 			<label for="updatecell">Número de celular</label>
-			<input type="text" value="+258" disabled="true" size="3" > <input type="tel" name="updatecell" autocomplete="false"><br>
+			<input type="text" value="+258" disabled="true" size="3" > <input type="tel" name="updatecell" value="<?php echo $bidder->phone_number; ?>" autocomplete="false"><br>
 			<br>
         	<br>
 			<label for="updatecity">Cidade</label>
-			<input type="text" name="updatecity"  placeholder="Introduza a cidade em que vive" size="23" autocomplete="false">
+			<input type="text" name="updatecity"  value="<?php echo $bidder->city; ?>" size="23" autocomplete="false">
 			<br>
         	<br>
 			<label for="updateaddress">endereço</label>
-			<input type="text" name="updateaddress"  placeholder="Introduza o seu endereço" size="23" autocomplete="false">
+			<textarea rows="3" cols="40" name="updateaddress"><?php echo $bidder->address; ?></textarea>
 			<br>
         	<br>
-			<label for="updatecardnumber">Número de cartão</label>
-			<input type="text" name="updatecardnumber"  placeholder="XXXX-XXXX-XXXX-XXXX" size="26" autocomplete="false">
-			<br>
-        	<br>
-			<label for="updatecardname">Nome do cartão</label>
-			<input type="text" name="updatecardname"  placeholder="Introduza o nome do cartão" size="23" autocomplete="false">
-			<br>
-        	<br>
-			<label for="updatesecuritycode">Código de segurança (CVV)</label>
-			<input type="number" name="updatesecuritycode" autocomplete="false">
-            <br>
-            <br>
-			<input type="submit" class="submit"	value="Submeter">
+			<button onclick="hideForm()">Cancelar</button>
+			<input type="submit" class="submit"	value="Alterar">
 		</form>
 	</section>
+<?php
+	}
+?>
 <script src="./assets/scripts/js/jquery-3.6.0.js"></script>
 <script src="./assets/scripts/js/jquery.validate.min.js"></script>
 <script language="javascript">
