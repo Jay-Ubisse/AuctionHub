@@ -46,8 +46,8 @@
         <input type="hidden" name="content" value="updateitem">
     </form>
     <form action="index.php" method="post">
-    <label>Procurar um liciante:</label><br>
-    <input type="text" name="bidderid" size="14"/>
+    <label>Procurar um usuário:</label><br>
+    <input type="text" name="username" size="14"/>
     <input type="submit" value="procurar"/>
     <input type="hidden" name="content" value="displaybidder">
     </form>
